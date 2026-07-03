@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getCalApi } from "@calcom/embed-react";
 import { motion } from "motion/react";
 import {
     Clock, Users, Bell, BarChart3, Smartphone, CheckCircle,
@@ -201,7 +202,7 @@ function Navbar() {
 
 
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-border">
-            <div className="max-w-6xl mx-auto px-0.5 sm:px-1 flex items-center justify-between h-16">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
                 <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
                         <Activity className="w-4 h-4 text-white" />
@@ -214,8 +215,8 @@ function Navbar() {
                     ))}
                 </div>
                 <div className="flex items-center gap-3">
-                    <button className="hidden sm:inline-flex text-sm font-medium px-4 py-2 rounded-lg hover:bg-muted transition-colors cursor-pointer">Login</button>
-                    <button className="text-sm font-semibold px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors cursor-pointer">Book Free Demo</button>
+                    {/* <button className="hidden sm:inline-flex text-sm font-medium px-4 py-2 rounded-lg hover:bg-muted transition-colors cursor-pointer">Login</button> */}
+                    <button data-cal-link="himang305" data-cal-config='{"layout":"month_view"}' className="text-sm font-semibold px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors cursor-pointer">Book Free Demo</button>
                 </div>
             </div>
         </nav>
@@ -230,7 +231,7 @@ function HeroSection() {
         { icon: Star, label: "Made for Indian Healthcare" },
     ];
     return (
-        <section className="pt-32 pb-20 px-1 sm:px-2 max-w-5xl mx-auto">
+        <section className="pt-32 pb-20 px-4 sm:px-6 max-w-5xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                     <Badge className="mb-4 bg-primary/10 text-primary">Made for Indian Clinics &amp; Hospitals</Badge>
@@ -241,10 +242,10 @@ function HeroSection() {
                         OpdSeva.in helps clinics and hospitals manage patient appointments, live OPD queues, waiting times, and doctor schedules in real time. Built specially for Indian clinics in Tier-2 and Tier-3 cities.
                     </p>
                     <div className="flex flex-wrap gap-3 mb-10">
-                        <button className="flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors cursor-pointer">
+                        <button data-cal-link="himang305" data-cal-config='{"layout":"month_view"}' className="flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors cursor-pointer">
                             Book Free Demo <ArrowRight className="w-4 h-4" />
                         </button>
-                        <button className="text-sm font-semibold px-5 py-3 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors cursor-pointer">
+                        <button data-cal-link="himang305" data-cal-config='{"layout":"month_view"}' className="text-sm font-semibold px-5 py-3 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors cursor-pointer">
                             Start Free Trial
                         </button>
                     </div>
@@ -345,7 +346,7 @@ function FeaturesSection() {
                 <div className="mt-12 rounded-2xl bg-primary/5 border border-primary/20 p-8 text-center">
                     <h3 className="text-2xl font-bold mb-2">Ready to digitize your OPD?</h3>
                     <p className="text-muted-foreground mb-6">Join 500+ clinics already using OpdSeva.in</p>
-                    <button className="flex items-center gap-2 mx-auto text-sm font-semibold px-5 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors cursor-pointer">
+                    <button data-cal-link="himang305" data-cal-config='{"layout":"month_view"}' className="flex items-center gap-2 mx-auto text-sm font-semibold px-5 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors cursor-pointer">
                         Book Free Demo <ArrowRight className="w-4 h-4" />
                     </button>
                 </div>
@@ -479,7 +480,7 @@ function PricingSection() {
                                         </li>
                                     ))}
                                 </ul>
-                                <button className={`w-full text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors cursor-pointer ${p.highlight ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-secondary text-secondary-foreground hover:bg-secondary/80"}`}>
+                                <button data-cal-link="himang305" data-cal-config='{"layout":"month_view"}' className={`w-full text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors cursor-pointer ${p.highlight ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-secondary text-secondary-foreground hover:bg-secondary/80"}`}>
                                     {p.cta}
                                 </button>
                             </div>
@@ -507,10 +508,10 @@ function FaqSection() {
                 <div className="mt-8 text-center">
                     <p className="text-muted-foreground text-sm mb-4">Still have questions? Our team is happy to help.</p>
                     <div className="flex justify-center gap-3">
-                        <button className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors cursor-pointer">
+                        <button onClick={() => window.open("https://wa.me/919598241681?text=Hi!%20I%20am%20interested%20in%20OpdSeva.", "_blank")} className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors cursor-pointer">
                             <MessageSquare className="w-4 h-4" /> Chat on WhatsApp
                         </button>
-                        <button className="text-sm font-medium px-4 py-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors cursor-pointer">
+                        <button onClick={() => window.location.href = "mailto:himang305@gmail.com"} className="text-sm font-medium px-4 py-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors cursor-pointer">
                             Email Us
                         </button>
                     </div>
@@ -529,10 +530,10 @@ function CtaSection() {
                 <p className="text-white/80 text-lg mb-4 max-w-xl mx-auto">Reduce waiting chaos, improve patient satisfaction, and digitize your clinic operations with OpdSeva.in.</p>
                 <p className="text-white/70 italic text-sm mb-8">"Know Your Turn Before You Go"</p>
                 <div className="flex flex-wrap justify-center gap-3">
-                    <button className="flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-lg bg-white text-primary hover:bg-white/90 transition-colors cursor-pointer">
+                    <button data-cal-link="himang305" data-cal-config='{"layout":"month_view"}' className="flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-lg bg-white text-primary hover:bg-white/90 transition-colors cursor-pointer">
                         Schedule Demo <ArrowRight className="w-4 h-4" />
                     </button>
-                    <button className="text-sm font-semibold px-5 py-3 rounded-lg border border-white/30 text-white hover:bg-white/10 transition-colors cursor-pointer">
+                    <button data-cal-link="himang305" data-cal-config='{"layout":"month_view"}' className="text-sm font-semibold px-5 py-3 rounded-lg border border-white/30 text-white hover:bg-white/10 transition-colors cursor-pointer">
                         Talk to Our Team
                     </button>
                 </div>
@@ -557,7 +558,7 @@ function Footer() {
                 </p>
                 <div className="flex gap-4 text-xs text-muted-foreground">
                     {["Privacy", "Terms", "Contact"].map((l) => (
-                        <a key={l} href="#" className="hover:text-foreground transition-colors cursor-pointer">{l}</a>
+                        <a key={l} href={l === "Contact" ? undefined : "#"} data-cal-link={l === "Contact" ? "himang305" : undefined} data-cal-config={l === "Contact" ? '{"layout":"month_view"}' : undefined} className="hover:text-foreground transition-colors cursor-pointer">{l}</a>
                     ))}
                 </div>
             </div>
@@ -568,6 +569,13 @@ function Footer() {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Index() {
+    useEffect(() => {
+        (async function () {
+            const cal = await getCalApi();
+            cal("ui", { "styles": { "branding": { "brandColor": "#0051A3" } }, "hideEventTypeDetails": false, "layout": "month_view" });
+        })();
+    }, []);
+
     return (
         <div className="min-h-screen bg-background">
             <Navbar />

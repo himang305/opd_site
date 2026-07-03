@@ -44,12 +44,7 @@
     <!-- Prevent FOUC -->
     <script>
         try {
-            let theme = localStorage.getItem("theme");
-            if (theme === "system" || !theme) {
-                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-                theme = prefersDark ? "dark" : "light";
-            }
-            document.documentElement.classList.add(theme);
+            document.documentElement.classList.add("light");
         } catch (e) { }
     </script>
 
