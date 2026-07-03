@@ -21,9 +21,6 @@
         /* Linting */
         "strict": true,
         "paths": {
-            "@/convex/*": [
-                "./convex/*"
-            ],
             "@/*": [
                 "./src/*"
             ]

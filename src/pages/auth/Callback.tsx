@@ -1,20 +1,16 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthCallback } from "@usehercules/auth/react";
-import { useConvexAuth, useMutation } from "convex/react";
 import { Loader2Icon } from "lucide-react";
-import { api } from "@/convex/_generated/api.js";
 
 export default function AuthCallback() {
     const navigate = useNavigate();
-    const { isAuthenticated: isConvexAuthenticated } = useConvexAuth();
-    const updateCurrentUser = useMutation(api.users.updateCurrentUser);
 
-    const onSync = useCallback(async () => { await updateCurrentUser(); }, [updateCurrentUser]);
+    const onSync = useCallback(async () => {}, []);
     const navigateHome = useCallback(() => navigate("/", { replace: true }), [navigate]);
 
     const { status, error, retry } = useAuthCallback({
-        isBackendAuthenticated: isConvexAuthenticated,
+        isBackendAuthenticated: true,
         onSync,
         onSuccess: navigateHome,
         onNoAuthParams: navigateHome,
