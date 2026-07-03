@@ -239,7 +239,7 @@ function HeroSection() {
                         No More OPD<br /><span className="text-primary">Waiting Chaos</span>
                     </h1>
                     <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-lg">
-                        OpdSeva.in helps clinics and hospitals manage patient appointments, live OPD queues, waiting times, and doctor schedules in real time. Built specially for Indian clinics in Tier-2 and Tier-3 cities.
+                        OpdSeva.in helps clinics and hospitals manage patient appointments, live OPD queues, waiting times, and doctor schedules in real time. Built specially for Indian clinics.
                     </p>
                     <div className="flex flex-wrap gap-3 mb-10">
                         <button data-cal-link="himang305" data-cal-config='{"layout":"month_view"}' className="flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors cursor-pointer">
