@@ -236,10 +236,10 @@ function HeroSection() {
                 <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                     <Badge className="mb-4 bg-primary/10 text-primary">Made for Indian Clinics &amp; Hospitals</Badge>
                     <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-5 text-balance">
-                        No More OPD<br /><span className="text-primary">Waiting Chaos</span>
+                        Clinic Management Software to <span className="text-primary">Simplify OPD Operations</span>
                     </h1>
                     <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-lg">
-                        OpdSeva.in helps clinics and hospitals manage patient appointments, live OPD queues, waiting times, and doctor schedules in real time. Built specially for Indian clinics.
+                        Manage appointments, organize patient queues, track waiting times and coordinate doctor schedules—all in one simple platform built for Indian clinics.
                     </p>
                     <div className="flex flex-wrap gap-3 mb-10">
                         <button data-cal-link="himang305" data-cal-config='{"layout":"month_view"}' className="flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors cursor-pointer">
@@ -556,7 +556,8 @@ function Footer() {
                 <p className="text-xs text-muted-foreground">
                     © {new Date().getFullYear()} OpdSeva.in — Smart OPD Management for Indian Clinics
                 </p>
-                <div className="flex gap-4 text-xs text-muted-foreground">
+                <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                    <a href="/solutions" className="hover:text-foreground font-medium text-primary transition-colors">Solutions &amp; SEO Topics</a>
                     {["Privacy", "Terms", "Contact"].map((l) => (
                         <a key={l} href={l === "Contact" ? undefined : "#"} data-cal-link={l === "Contact" ? "himang305" : undefined} data-cal-config={l === "Contact" ? '{"layout":"month_view"}' : undefined} className="hover:text-foreground transition-colors cursor-pointer">{l}</a>
                     ))}

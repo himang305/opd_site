@@ -3,6 +3,8 @@ import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 import { useEffect } from "react";
 import Index from "./pages/Index.tsx";
+import SeoLandingPage from "./pages/SeoLandingPage.tsx";
+import SolutionsIndex from "./pages/SolutionsIndex.tsx";
 
 function NotFound() {
     const location = useLocation();
@@ -30,6 +32,8 @@ export default function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Index />} />
+                    <Route path="/solutions" element={<SolutionsIndex />} />
+                    <Route path="/solutions/:slug" element={<SeoLandingPage />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
